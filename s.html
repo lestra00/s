@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dejt</title>
+    <style>
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        #noButton {
+            position: relative;
+            transition: transform 0.2s;
+        }
+        .image{
+            width: 100%;
+            margin: 0px auto;
+        }
+        .image img{
+            width: 50%;
+            margin: 0px auto;
+            display: flex;
+            padding-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Da li zelis na dejt sa mnom?</h1>
+        <button id="yesButton">Da</button>
+        <button id="noButton">Ne</button>
+    </div>
+<div class="image">
+    <img src="stock-photo-portrait-of-fabulous-long-nosed-monkey-borneo-malaysia-536254192.jpg" alt="">
+</div>
+    <script>
+        // Yes button click event - leads to YouTube
+        document.getElementById('yesButton').onclick = function() {
+            window.location.href = 'https://www.youtube.com/shorts/EiuXmolcm0k';
+        };
+
+        // No button hover event (desktop) or touch event (mobile) - moves to a random position
+        function moveNoButton() {
+            // Generate random position
+            const randomX = Math.floor(Math.random() * 300) - 150;
+            const randomY = Math.floor(Math.random() * 300) - 150;
+            
+            // Apply new position
+            document.getElementById('noButton').style.transform = `translate(${randomX}px, ${randomY}px)`;
+        }
+
+        // Attach event for desktop hover
+        document.getElementById('noButton').onmouseover = moveNoButton;
+
+        // Attach event for mobile touch
+        document.getElementById('noButton').ontouchstart = moveNoButton;
+    </script>
+</body>
+</html>
